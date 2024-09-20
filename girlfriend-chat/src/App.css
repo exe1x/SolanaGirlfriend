@@ -36,3 +36,67 @@
     transform: rotate(360deg);
   }
 }
+
+.girlfriend-selection {
+  margin: 20px;
+}
+
+.girlfriend-list {
+  display: flex;  /* Flexbox layout to align the images side by side */
+  justify-content: center;  /* Center the images */
+  gap: 10px; /* Reduce the space between each girlfriend image */
+}
+
+.girlfriend-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 10px; /* Optional: Additional margin to adjust spacing */
+}
+
+.girlfriend-card:hover {
+  opacity: 0.8;
+}
+
+.girlfriend-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #6200ea;
+  transition: border-color 0.3s ease;
+}
+
+.girlfriend-card:hover .girlfriend-image {
+  border-color: #3700b3;  /* Change border color on hover */
+}
+
+.selected-girlfriend-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.chat-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally center the image */
+}
+
+.selected-girlfriend-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+

@@ -1,0 +1,23 @@
+.wallet-connection {
+    margin: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #3700b3;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #333;
+  }
+  

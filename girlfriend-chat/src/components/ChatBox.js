@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/ChatBox.css';
-import Message from './Message'; // Optional: separate message component for better structure
-import { getAIResponse } from '../services/chatService'; // Import the service to fetch AI responses
+import { getAIResponse } from '../services/chatService'; // Assuming this handles the AI API request
 
-const ChatBox = () => {
+const ChatBox = ({ personality }) => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef(null);
@@ -17,6 +16,11 @@ const ChatBox = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Clear the chat messages when the personality changes
+  useEffect(() => {
+    setMessages([]);  // Clear messages when a new girlfriend is selected
+  }, [personality]);
+
   // Handle sending the user's message
   const handleSendMessage = async () => {
     if (inputMessage.trim() === '') return;
@@ -25,16 +29,16 @@ const ChatBox = () => {
     const userMessage = { text: inputMessage, sender: 'user' };
     setMessages([...messages, userMessage]);
 
-    setInputMessage(''); // Clear the input
+    setInputMessage(''); // Clear input
 
-    // Call the AI response function
-    simulateGirlfriendResponse(inputMessage);
+    // Call the AI response function with the girlfriend's personality
+    simulateGirlfriendResponse(userMessage.text);
   };
 
-  // Call the AI and get the assistant's response
+  // Call the AI and get the assistant's response with dynamic personality
   const simulateGirlfriendResponse = async (userMessage) => {
     try {
-      const gfResponse = await getAIResponse(userMessage);
+      const gfResponse = await getAIResponse(userMessage, personality);
 
       // Add the AI's response to the chat
       setMessages((prevMessages) => [
@@ -47,10 +51,12 @@ const ChatBox = () => {
   };
 
   return (
-    <div className="chat-container">
+    <div className="chatbox">
       <div className="messages-container">
         {messages.map((message, index) => (
-          <Message key={index} message={message} />
+          <div key={index} className={`message ${message.sender}`}>
+            {message.text}
+          </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
