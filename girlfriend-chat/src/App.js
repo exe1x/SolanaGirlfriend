@@ -28,7 +28,7 @@ function App() {
   // State for wallet and balance management
   const [walletAddress, setWalletAddress] = useState(null);
   const [balance, setBalance] = useState(0);
-  const [selectedGirlfriend, setSelectedGirlfriend] = useState(girlfriends[0]);
+  const [selectedGirlfriend, setSelectedGirlfriend] = useState(null);
 
   const updateBalanceInFirebase = async (newBalance) => {
     if (!walletAddress) return; // Ensure wallet address is available
@@ -44,53 +44,62 @@ function App() {
 
   return (
     <div className="App">
-      {/* PhantomWallet Component */}
-      <PhantomWallet
-        walletAddress={walletAddress}
-        setWalletAddress={setWalletAddress}
-        balance={balance}
-        setBalance={setBalance}
-      />
-      
-      <h1>Chat with Your Girlfriend</h1>
-      
-      {/* Girlfriend selection */}
-      <div className="girlfriend-selection">
-        <h2>Select a Girlfriend</h2>
-        <div className="girlfriend-list">
-          {girlfriends.map((girlfriend) => (
-            <button
-              key={girlfriend.name}
-              onClick={() => setSelectedGirlfriend(girlfriend)}
-              className="girlfriend-card"
-            >
+      <div className="chat">
+        {/* PhantomWallet Component */}
+        <PhantomWallet
+          walletAddress={walletAddress}
+          setWalletAddress={setWalletAddress}
+          balance={balance}
+          setBalance={setBalance}
+        />
+
+        <h1>Chat with Your Girlfriend</h1>
+
+        {/* Girlfriend selection */}
+        <div className="girlfriend-selection">
+          <h2>Select a Girlfriend</h2>
+          <div className="girlfriend-list">
+            {girlfriends.map((girlfriend) => (
+              <button
+                key={girlfriend.name}
+                onClick={() => setSelectedGirlfriend(girlfriend)}
+                className="girlfriend-card"
+              >
+                <img
+                  src={girlfriend.image}
+                  alt={girlfriend.name}
+                  className="girlfriend-image"
+                />
+                <div>{girlfriend.name}</div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ChatBox component should always be visible */}
+        <div className="chat-container">
+          {selectedGirlfriend ? (
+            <>
+              <h3>Talking to {selectedGirlfriend.name}</h3>
               <img
-                src={girlfriend.image}
-                alt={girlfriend.name}
-                className="girlfriend-image"
+                src={selectedGirlfriend.image}
+                alt={selectedGirlfriend.name}
+                className="selected-girlfriend-image"
               />
-              <div>{girlfriend.name}</div>
-            </button>
-          ))}
+              <ChatBox
+                personality={selectedGirlfriend.personality}
+                walletAddress={walletAddress} // Pass walletAddress to ChatBox
+                balance={balance} // Pass balance to ChatBox
+                setBalance={setBalance} // Allow ChatBox to update balance
+                updateBalanceInFirebase={updateBalanceInFirebase}
+              />
+            </>
+          ) : (
+            <p>Please select a girlfriend to start chatting.</p> // Show this message if no girlfriend is selected
+          )}
         </div>
       </div>
-
-      {/* ChatBox component should always be visible */}
-      <div className="chat-container">
-        <h3>Talking to {selectedGirlfriend.name}</h3>
-        <img
-          src={selectedGirlfriend.image}
-          alt={selectedGirlfriend.name}
-          className="selected-girlfriend-image"
-        />
-        <ChatBox
-          personality={selectedGirlfriend.personality}
-          walletAddress={walletAddress} // Pass walletAddress to ChatBox
-          balance={balance} // Pass balance to ChatBox
-          setBalance={setBalance} // Allow ChatBox to update balance
-          updateBalanceInFirebase={updateBalanceInFirebase} 
-        />
-      </div>
+      <img src="/monitor1.png" alt="Monitor" className="transparent-screen" />
     </div>
   );
 }

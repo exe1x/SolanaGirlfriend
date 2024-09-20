@@ -1,6 +1,58 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling of the entire page */
+}
+
 .App {
   text-align: center;
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent overflow */
+  background: url('../public/bg.jpeg') no-repeat center center; /* Ensure no-repeat and centered */
+  background-size: cover; /* Use percentage to control zoom level */
+  background-position: center; /* Keep the image centered */
 }
+
+
+.chat {
+  background-color: #f0f0f0;
+  position: fixed; /* Fix the chat box in a position relative to the viewport */
+  width: 35vw; /* The chat box will take up 70% of the width of its parent container */
+  height: 45vh; /* The chat box height will take 60% of the viewport height */
+  margin: 0vw auto; /* Centers the chat box horizontally */
+  padding: 20px; /* Optional: Padding for inner content */
+  margin-left: 40px;
+  margin-right: 5px;
+  margin-bottom: 10vh;
+  border-radius: 10px; /* Optional: Rounded corners for a smoother appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+  overflow: scroll; /* Allows the chat content to scroll if it exceeds the height */
+  object-fit: cover;
+}
+
+.transparent-screen {
+  position: fixed;
+  top: 10%;            /* Adjust to center it vertically */
+  z-index: 2;          /* Place the image on top of the content */
+  pointer-events: none; /* Allow clicking through the transparent areas */
+  width: 120vw;        /* Make it fill the viewport width */
+  height: 100vh;       /* Make it fill the viewport height */
+}
+
+.Lube {
+  float: right; /* Moves the image to the right */
+  width: .5 vw; /* Resize the image to your desired width */
+  height: 1 vh; /* Maintain aspect ratio */
+  margin-left: 1000px; /* Add some space on the right */
+  margin-top: 10px; /* Add some space on the top */
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -57,6 +109,7 @@
   text-align: center;
   font-size: 18px;
   margin: 0 10px; /* Optional: Additional margin to adjust spacing */
+  color: black; /* Default text color */
 }
 
 .girlfriend-card:hover {
@@ -99,4 +152,3 @@
   object-fit: cover;
   margin-bottom: 20px;
 }
-
