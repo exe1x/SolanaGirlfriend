@@ -166,7 +166,7 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
                     className="transaction-button"
                     disabled={!walletAddress} // Disable if no wallet is connected
                 >
-                    {walletAddress ? "Send 100 $GF Tokens For 1 Chat Credit" : "Select a Wallet to Buy"} {/* Conditional text */}
+                    {walletAddress ? "Send 100 $GF For 1 Chat Credit" : "Select a Wallet to Buy"} {/* Conditional text */}
                 </button>
                 <button onClick={toggleInfo} className="info-button">Info</button> {/* Button to show info */}
             </div>
@@ -177,7 +177,7 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
                         <h2>Welcome to $GF!</h2>
                         <p>The first AI girlfriend powered by $GF tokens. Every purchase burns the $GF token.</p>
                         <p>Follow us on <a href="https://x.com/AISolMate" target="_blank" rel="noopener noreferrer">X</a> for updates!</p>
-                        <p>Join Our <a href="https://x.com/AISolMate" target="_blank" rel="noopener noreferrer">Telegram</a></p>
+                        <p>Join Our <a href="https://t.me/AISolMatePortal" target="_blank" rel="noopener noreferrer">Telegram</a></p>
                         <button onClick={toggleInfo} className="close-dialog-button">Close</button>
                     </div>
                 </div>

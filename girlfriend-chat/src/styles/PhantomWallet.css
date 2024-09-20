@@ -1,5 +1,5 @@
 .wallet-adapter-button {
-    width: 230px; /* Adjust this value to your preferred width */
+    width: 160px; /* Adjust this value to your preferred width */
     height: 48px;
     padding: 10px 20px; /* Optional: Adjust padding for better appearance */
     background-color: #3700b3; /* Optional: Adjust the background color */
@@ -19,7 +19,7 @@
   .transaction-button {
     padding: 10px 20px;
     height: 48px;
-    width: 250px;
+    width: 330px;
     background-color: #3700b3;
     color: white;
     border: none;
@@ -36,7 +36,7 @@
   .info-button {
     padding: 10px 20px;
     height: 48px;
-    width: 250px;
+    width: 230px;
     background-color: #3700b3;
     color: white;
     border: none;
