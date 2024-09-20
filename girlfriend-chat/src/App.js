@@ -3,6 +3,7 @@ import ChatBox from './components/ChatBox'; // Import the ChatBox component
 import PhantomWallet from './components/PhantomWallet'; // Import PhantomWallet component
 import './App.css';
 import { doc, setDoc } from 'firebase/firestore'; // Import Firestore functions
+import WalletProvider from './components/WalletProvider';
 import { db } from './firebase';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
   };
 
   return (
+    <WalletProvider>
     <div className="App">
       <div className="chat">
         {/* PhantomWallet Component */}
@@ -101,6 +103,7 @@ function App() {
       </div>
       <img src="/monitor1.png" alt="Monitor" className="transparent-screen" />
     </div>
+    </WalletProvider>
   );
 }
 

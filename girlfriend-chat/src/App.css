@@ -14,7 +14,7 @@ html, body {
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Prevent overflow */
-  background: url('../public/bg.jpeg') no-repeat center center; /* Ensure no-repeat and centered */
+  background: url('../public/bbbg.png') no-repeat center center; /* Ensure no-repeat and centered */
   background-size: cover; /* Use percentage to control zoom level */
   background-position: center; /* Keep the image centered */
 }
@@ -23,10 +23,10 @@ html, body {
 .chat {
   background-color: #f0f0f0;
   position: fixed; /* Fix the chat box in a position relative to the viewport */
-  width: 35vw; /* The chat box will take up 70% of the width of its parent container */
+  width: 30vw; /* The chat box will take up 70% of the width of its parent container */
   height: 45vh; /* The chat box height will take 60% of the viewport height */
   margin: 0vw auto; /* Centers the chat box horizontally */
-  padding: 20px; /* Optional: Padding for inner content */
+  padding: 30px; /* Optional: Padding for inner content */
   margin-left: 40px;
   margin-right: 5px;
   margin-bottom: 10vh;
