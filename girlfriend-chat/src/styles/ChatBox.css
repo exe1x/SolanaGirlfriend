@@ -3,7 +3,7 @@
     margin: 50px auto;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background: url('../../public/waifu.jpg');
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -68,3 +68,18 @@
     background-color: #1976d2;
   }
   
+  .balance-container {
+    padding: 5px;
+    margin: 10px 0;
+    margin-left: 50px;
+    border-radius: 10px;
+    max-width: 70%;
+    text-align: center; /* Keep the text centered */
+    word-wrap: break-word; /* Ensure long words break */
+    overflow-wrap: break-word; /* Ensures long words break at the end of the line */
+    white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+    line-height: 1; /* Adjust line height for better readability on line breaks */
+    background-color: #e1f5fe;
+    align-self: flex-start;
+    font-weight: bold;
+  }

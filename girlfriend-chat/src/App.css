@@ -110,10 +110,12 @@ html, body {
   font-size: 18px;
   margin: 0 10px; /* Optional: Additional margin to adjust spacing */
   color: black; /* Default text color */
+  font-weight: bold;
 }
 
 .girlfriend-card:hover {
   opacity: 0.8;
+  background-color: #3700b3; /* Background color on hover */
 }
 
 .girlfriend-image {
@@ -122,7 +124,7 @@ html, body {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
-  border: 3px solid #6200ea;
+  border: 3px solid #3700b3;
   transition: border-color 0.3s ease;
 }
 
@@ -151,4 +153,9 @@ html, body {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
+}
+
+.text-f0f0f0 {
+  color: #f0f0f0;
+  font-weight: bold;
 }

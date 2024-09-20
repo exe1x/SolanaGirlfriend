@@ -1,23 +1,100 @@
-.wallet-connection {
-    margin: 20px;
+.wallet-adapter-button {
+    width: 230px; /* Adjust this value to your preferred width */
+    height: 48px;
+    padding: 10px 20px; /* Optional: Adjust padding for better appearance */
+    background-color: #3700b3; /* Optional: Adjust the background color */
+}
+
+.wallet-adapter-button:hover {
+    background-color: #3700b3; /* Optional: Change the hover color */
+}
+
+.wallet-and-transaction-buttons {
+    display: flex;
+    align-items: center; /* Vertically center the buttons */
+    gap: 20px; /* Adds space between the buttons */
+    margin: 20px 0; /* Adds margin around the buttons */
   }
   
-  button {
+  .transaction-button {
+    padding: 10px 20px;
+    height: 48px;
+    width: 250px;
+    background-color: #3700b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .transaction-button:hover {
+    background-color: #1e0064;
+  }
+
+  .info-button {
+    padding: 10px 20px;
+    height: 48px;
+    width: 250px;
+    background-color: #3700b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .info-button:hover {
+    background-color: #1e0064;
+  }
+  
+  .info-text {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+
+.close-dialog-button {
+    margin-top: 20px;
     padding: 10px 20px;
     background-color: #6200ea;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
+    font-weight: bold;
+}
+
+.close-dialog-button:hover {
     background-color: #3700b3;
-  }
-  
-  p {
-    font-size: 18px;
-    color: #333;
-  }
+}
   

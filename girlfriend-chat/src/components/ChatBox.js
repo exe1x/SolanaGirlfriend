@@ -56,7 +56,7 @@ const ChatBox = ({ personality, walletAddress, balance, setBalance, updateBalanc
   return (
     <div className="chatbox">
       <div className="balance-container">
-        <p>Balance: {balance} Tokens</p>
+        <p>Balance: {balance} Credits</p>
       </div>
       <div className="messages-container">
         {messages.map((message, index) => (

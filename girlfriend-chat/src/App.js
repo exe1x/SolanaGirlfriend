@@ -82,7 +82,6 @@ function App() {
         <div className="chat-container">
           {selectedGirlfriend ? (
             <>
-              <h3>Talking to {selectedGirlfriend.name}</h3>
               <img
                 src={selectedGirlfriend.image}
                 alt={selectedGirlfriend.name}
@@ -97,7 +96,7 @@ function App() {
               />
             </>
           ) : (
-            <p>Please select a girlfriend to start chatting.</p> // Show this message if no girlfriend is selected
+            <p className="text-f0f0f0">Please select a girlfriend to start chatting.</p>// Show this message if no girlfriend is selected
           )}
         </div>
       </div>
