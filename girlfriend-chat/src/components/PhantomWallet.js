@@ -25,6 +25,7 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
     const [transactionStatus, setTransactionStatus] = useState(null); // To show transaction status
     const [decimals, setDecimals] = useState(0); // Store the token's decimal precision
     const [infoVisible, setInfoVisible] = useState(false); // State to toggle info dialog
+    const memoizedSetWalletAddress = useCallback(setWalletAddress, [setWalletAddress]);
 
     // Function to fetch token decimals
     const fetchTokenDecimals = useCallback(async () => {
@@ -37,15 +38,14 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
     }, [connection]);
 
     // Function to fetch or create user in Firebase
-    const fetchOrCreateUserInFirebase = async (publicKey) => {
+    const fetchOrCreateUserInFirebase = useCallback(async (publicKey) => {
         try {
             const userRef = doc(db, 'users', publicKey);
             const userSnap = await getDoc(userRef);
 
             if (userSnap.exists()) {
-                setBalance(userSnap.data().balance); // Set balance from Firebase
+                setBalance(userSnap.data().balance);
             } else {
-                // If user doesn't exist, create with default balance
                 const defaultBalance = 10;
                 await setDoc(userRef, { walletID: publicKey, balance: defaultBalance });
                 setBalance(defaultBalance);
@@ -53,7 +53,7 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
         } catch (error) {
             console.error("Error fetching or creating user in Firebase:", error);
         }
-    };
+    }, [setBalance]);
 
     const sendSplTokenToStore = async () => {
         if (!publicKey) return;
@@ -150,15 +150,16 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
 
     // Effect to trigger Firebase fetch when wallet is connected
     useEffect(() => {
-        const walletAddress = publicKey ? publicKey.toString() : "Everyone"; // Use "everyone" if no publicKey
-        setWalletAddress(walletAddress); // Set wallet address
-    
-        fetchOrCreateUserInFirebase(walletAddress); // Fetch or create Firebase user using walletAddress
-    
+        const walletAddr = publicKey ? publicKey.toString() : "Everyone";
+        memoizedSetWalletAddress(walletAddr);
+
+        fetchOrCreateUserInFirebase(walletAddr);
+
         if (publicKey) {
-            fetchTokenDecimals(); // Fetch the token's decimal precision only if publicKey exists
+            fetchTokenDecimals();
         }
-    }, [publicKey, fetchTokenDecimals]);
+    }, [publicKey, fetchTokenDecimals, memoizedSetWalletAddress, fetchOrCreateUserInFirebase]);
+
 
     return (
         <div>
