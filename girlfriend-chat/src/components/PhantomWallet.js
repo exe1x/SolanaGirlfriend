@@ -88,7 +88,7 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
             }
 
             // Specify the human-readable amount you want to transfer (e.g., 10 tokens)
-            const humanReadableAmount = 1;
+            const humanReadableAmount = 100;
 
             // Adjust for decimals
             const tokenAmount = humanReadableAmount * Math.pow(10, decimals); // 10 tokens adjusted for decimals
