@@ -150,10 +150,13 @@ const PhantomWallet = ({ walletAddress, setWalletAddress, balance, setBalance })
 
     // Effect to trigger Firebase fetch when wallet is connected
     useEffect(() => {
+        const walletAddress = publicKey ? publicKey.toString() : "Everyone"; // Use "everyone" if no publicKey
+        setWalletAddress(walletAddress); // Set wallet address
+    
+        fetchOrCreateUserInFirebase(walletAddress); // Fetch or create Firebase user using walletAddress
+    
         if (publicKey) {
-            setWalletAddress(publicKey.toString()); // Set wallet address
-            fetchOrCreateUserInFirebase(publicKey.toString()); // Fetch or create Firebase user
-            fetchTokenDecimals(); // Fetch the token's decimal precision
+            fetchTokenDecimals(); // Fetch the token's decimal precision only if publicKey exists
         }
     }, [publicKey, fetchTokenDecimals]);
 
